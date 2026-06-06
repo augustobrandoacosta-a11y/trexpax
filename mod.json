@@ -1,0 +1,18 @@
+{
+    "geode": "3.9.3",
+    "id": "trexpaxhq.trexpaxdash",
+    "version": "1.0.0",
+    "name": "Trexpaxdash",
+    "developer": "trexpax hq",
+    "description": "The ultimate live texture pack creator engine for 2.206! >:3",
+    "dependencies": [
+        {
+            "id": "geode.node-ids",
+            "version": "v1.23.3",
+            "importance": "required"
+        }
+    ],
+    "resources": {
+        "files": []
+    }
+}
