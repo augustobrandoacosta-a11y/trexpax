@@ -1,0 +1,42 @@
+name: Build trexpax Mod
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - name: Android32
+            os: ubuntu-22.04
+            target: Android32
+          - name: Android64
+            os: ubuntu-22.04
+            target: Android64
+          - name: Windows
+            os: windows-latest
+            target: Win32
+
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Mod
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          bindings: geode-sdk/bindings
+          target: ${{ matrix.config.target }}
+
+      - name: Upload Artifact
+        uses: actions/workspace/upload-artifact@v4
+        with:
+          name: trexpaxdash-${{ matrix.config.target }}
+          path: build/*.geode
