@@ -1,4 +1,4 @@
-name: Build Trexpax Mod
+name: Build trexpax Mod
 
 on:
   push:
